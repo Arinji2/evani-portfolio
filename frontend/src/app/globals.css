@@ -1,17 +1,7 @@
 @import "tailwindcss";
 
-@theme static {
-  --font-title: var(--font-playfair-display);
-  --font-content: var(--font-josefin-sans);
+@theme inline {
+  --font-title: var(--font-playfair);
+  --font-content: var(--font-josefin);
   --color-background: #f1e5d3;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
 }

@@ -3,12 +3,12 @@ import { Playfair_Display, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 
 const josefinSans = Josefin_Sans({
-  variable: "--font-josefin-sans",
+  variable: "--font-josefin",
   subsets: ["latin"],
 });
 
 const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair-display",
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
