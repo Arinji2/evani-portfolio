@@ -42,7 +42,15 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="absolute bottom-32 left-0 w-[600px] h-[200px] bg-background rounded-r-xl">
+        <div className="absolute bottom-32 pl-4 left-0 w-[600px] h-[200px] flex flex-col items-start justify-center gap-2 bg-background rounded-r-xl">
+          <h1 className="font-title font-bold text-6xl text-black">
+            Evani Menon
+          </h1>
+          <p className="font-content font-light text-2xl text-black">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
           <CornerTopLeft className="absolute rotate-180 top-0 -translate-y-full left-0 scale-125 text-background" />
           <CornerTopRight className="absolute bottom-0 left-0 translate-y-full scale-125 text-background" />
         </div>
