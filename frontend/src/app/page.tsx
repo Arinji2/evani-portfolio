@@ -23,7 +23,14 @@ export default function Home() {
         </div>
 
         {/* Logo */}
-        <div className="absolute top-0 left-0 w-[200px] h-[100px] bg-background rounded-br-xl">
+        <div className="absolute flex flex-col items-center justify-center top-0 left-0 w-[100px] h-[100px] bg-background rounded-br-xl">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={64}
+            height={64}
+            className="object-contain"
+          />
           <CornerTopRight className="absolute top-0 scale-110 -right-5 text-background" />
           <CornerTopRight className="absolute bottom-0 left-0 translate-y-full scale-125 text-background" />
         </div>
