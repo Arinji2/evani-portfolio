@@ -18,12 +18,12 @@ export default function Home() {
         <div className="w-full h-full bg-black/30 absolute -z-10"></div>
 
         {/* Navbar */}
-        <ul className="absolute flex flex-row items-center justify-center gap-14 top-0 right-0 w-[700px] h-[100px] bg-background rounded-bl-xl">
-          <li className="font-light font-content text-2xl">Home</li>
-          <li className="font-light font-content text-2xl">Timeline</li>
-          <li className="font-light font-content text-2xl">Projects</li>
-          <li className="font-light font-content text-2xl">Artwork</li>
-          <li className="font-light font-content text-2xl">Contact</li>
+        <ul className="absolute flex flex-row items-center justify-center gap-10 top-0 right-0 w-[700px] h-[100px] bg-background rounded-bl-xl">
+          <li className="font-light font-content text-[28px]">Home</li>
+          <li className="font-light font-content text-[28px]">Timeline</li>
+          <li className="font-light font-content text-[28px]">Projects</li>
+          <li className="font-light font-content text-[28px]">Artwork</li>
+          <li className="font-light font-content text-[28px]">Contact</li>
 
           <CornerTopLeft className="absolute top-0 scale-110 -left-5 text-background" />
           <CornerTopLeft className="absolute bottom-0 right-0 translate-y-full scale-125 text-background" />
