@@ -13,8 +13,9 @@ export default function Home() {
           src="/hero.png"
           alt="hero"
           fill
-          className="object-cover absolute inset-0 -z-10"
+          className="object-cover absolute inset-0 -z-20"
         />
+        <div className="w-full h-full bg-black/30 absolute -z-10"></div>
 
         {/* Navbar */}
         <ul className="absolute flex flex-row items-center justify-center gap-14 top-0 right-0 w-[700px] h-[100px] bg-background rounded-bl-xl">
