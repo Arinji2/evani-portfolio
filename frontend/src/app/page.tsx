@@ -3,7 +3,10 @@ import {
   CornerTopLeft,
   CornerTopRight,
 } from "@/components/icons/corner";
+import { Mail } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
+import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
 
 export default function Home() {
   return (
@@ -57,7 +60,18 @@ export default function Home() {
         </div>
 
         {/* Socials */}
-        <div className="absolute bottom-0 right-0 w-[400px] h-[100px] bg-background rounded-tl-xl">
+        <div className="absolute bottom-0 right-0 flex flex-row items-center justify-end gap-8 w-[310px] h-[100px] bg-background rounded-tl-xl">
+          <div className="size-[4.5rem] rounded-full flex flex-col items-center justify-center bg-black">
+            <Mail className="text-white size-[2.5rem]" />
+          </div>
+
+          <div className="size-[4.5rem] rounded-full flex flex-col items-center justify-center bg-black">
+            <BrandLinkedin className="text-white size-[2.5rem]" />
+          </div>
+
+          <div className="size-[4.5rem] rounded-full flex flex-col items-center justify-center bg-black">
+            <BrandGithub className="text-white size-[2.5rem]" />
+          </div>
           <CornerTopRight className="rotate-180 absolute top-0 -translate-y-full scale-125 right-0  text-background" />
           <CornerBottomLeft className="absolute bottom-0 left-0 -translate-x-full scale-125 text-background" />
         </div>
