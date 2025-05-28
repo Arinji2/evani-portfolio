@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfairDisplay.variable} ${josefinSans.variable} antialiased`}
+        className={`bg-background w-full h-full ${playfairDisplay.variable} ${josefinSans.variable} antialiased`}
       >
         {children}
       </body>
