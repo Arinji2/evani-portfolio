@@ -4,4 +4,5 @@
   --font-title: var(--font-playfair);
   --font-content: var(--font-josefin);
   --color-background: #f1e5d3;
+  --spacing-pageMax: 1280px;
 }

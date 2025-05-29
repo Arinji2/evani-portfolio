@@ -9,8 +9,8 @@ import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
 
 export default function Home() {
   return (
-    <div className="w-full h-fit py-6 flex flex-col items-center justify-start">
-      <div className="w-[calc(100%-48px)] min-h-[calc(100svh-48px)] relative overflow-hidden rounded-2xl">
+    <div className="w-full h-fit max-w-pageMax py-6 flex flex-col items-center justify-start">
+      <div className="w-[calc(100%-48px)] min-h-[calc(100svh-48px)]  flex flex-col items-center justify-center relative overflow-hidden rounded-2xl">
         <Image
           src="/hero.png"
           alt="hero"
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="absolute bottom-32 pl-4 left-0 w-[600px] h-[200px] flex flex-col items-start justify-center gap-3 bg-background rounded-r-xl">
+        <div className="absolute xl:top-auto xl:bottom-32 pl-4 left-0 w-[600px] h-[200px] flex flex-col items-start justify-center gap-3 bg-background rounded-r-xl">
           <h1 className="font-title font-bold text-6xl text-black">
             Evani Menon
           </h1>
