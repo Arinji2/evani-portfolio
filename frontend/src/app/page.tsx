@@ -4,7 +4,6 @@ import {
   CornerTopRight,
 } from "@/components/icons/corner";
 import { Mail } from "lucide-react";
-import { SiGithub } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
 
