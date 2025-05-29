@@ -45,11 +45,11 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="absolute bottom-32 pl-4 left-0 w-[600px] h-[200px] flex flex-col items-start justify-center gap-2 bg-background rounded-r-xl">
+        <div className="absolute bottom-32 pl-4 left-0 w-[600px] h-[200px] flex flex-col items-start justify-center gap-3 bg-background rounded-r-xl">
           <h1 className="font-title font-bold text-6xl text-black">
             Evani Menon
           </h1>
-          <p className="font-content font-light text-2xl text-black">
+          <p className="font-content font-light text-2xl leading-6 line-clamp-3 text-black">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
