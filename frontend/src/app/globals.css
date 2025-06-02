@@ -4,5 +4,6 @@
   --font-title: var(--font-playfair);
   --font-content: var(--font-josefin);
   --color-background: #f1e5d3;
+  --color-blue: #3e4262;
   --spacing-pageMax: 1280px;
 }
