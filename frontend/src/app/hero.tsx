@@ -6,6 +6,7 @@ import {
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
+import Link from "next/link";
 export default function Hero() {
   return (
     <div className="w-full md:w-[calc(100%-48px)] h-[100svh] md:h-[calc(100svh-48px)]  flex flex-col items-center justify-center relative overflow-hidden md:rounded-2xl">
@@ -21,7 +22,13 @@ export default function Hero() {
       <ul className="absolute hidden md:flex  flex-row items-center justify-end gap-8 top-0 right-0 w-[600px] h-[80px] bg-background rounded-bl-xl">
         <li className="font-light font-content text-[28px]">Home</li>
         <li className="font-light font-content text-[28px]">Timeline</li>
-        <li className="font-light font-content text-[28px]">Projects</li>
+        <Link
+          href={"/projects"}
+          prefetch={true}
+          className="font-light font-content text-[28px]"
+        >
+          Projects
+        </Link>
         <li className="font-light font-content text-[28px]">Artwork</li>
         <li className="font-light font-content text-[28px]">Contact</li>
 
