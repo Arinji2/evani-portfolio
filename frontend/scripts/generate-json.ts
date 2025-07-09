@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { keyPairDefaults } from "../../keypairs";
+import { keyPairDefaults } from "./keypairs";
 
 const outputPath = resolve(__dirname, "../../db/dist/keypairs.json");
 

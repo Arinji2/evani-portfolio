@@ -1,5 +1,5 @@
 export const keyPairDefaults = {
-	hero_title: "My Awesome Portfolio",
-	hero_desc: "Frontend dev who loves animations",
-	hero_image: "/assets/hero.png",
+	hero_title: "Evani Portfolio",
+	hero_desc: "Evani's portfolio",
+	hero_image_id: "o",
 } as const;
