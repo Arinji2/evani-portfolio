@@ -1,5 +1,5 @@
 export type WorkItem = {
-  title: string;
-  description: string;
-  randomHeight: number;
+	title: string;
+	description: string;
+	randomHeight: number;
 };
