@@ -1,5 +1,3 @@
-import type { StaticImageData } from "next/image";
-
 export type ArtItem = {
 	title: string;
 	description: string;
