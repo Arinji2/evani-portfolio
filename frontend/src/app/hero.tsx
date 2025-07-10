@@ -1,19 +1,58 @@
 import { Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { memoize } from "nextjs-better-unstable-cache";
 import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
 import {
 	CornerBottomLeft,
 	CornerTopLeft,
 	CornerTopRight,
 } from "@/components/icons/corner";
-export default function Hero() {
+import type { KeyPairKey, KeyPairSchemaType } from "@/lib/data";
+import { getPB } from "@/lib/pb";
+import { getProxyURL } from "@/lib/utils";
+export default async function Hero() {
+	const { imageRecord, titleRecord, descriptionRecord } = await memoize(
+		async () => {
+			const pb = await getPB();
+			const imageRecord = await pb
+				.collection("keys")
+				.getFirstListItem<KeyPairSchemaType>(
+					`key = "${"hero_image_id" as KeyPairKey}"`,
+				);
+
+			const titleRecord = await pb
+				.collection("keys")
+				.getFirstListItem<KeyPairSchemaType>(
+					`key = "${"hero_title" as KeyPairKey}"`,
+				);
+
+			const descriptionRecord = await pb
+				.collection("keys")
+				.getFirstListItem<KeyPairSchemaType>(
+					`key = "${"hero_desc" as KeyPairKey}"`,
+				);
+
+			return {
+				imageRecord,
+				titleRecord,
+				descriptionRecord,
+			};
+		},
+		{
+			logid: "hero",
+			log: ["datacache"],
+		},
+	)();
+
 	return (
 		<div className="relative flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden md:h-[calc(100svh-48px)] md:w-[calc(100%-48px)] md:rounded-2xl">
 			<Image
-				src="/hero.png"
+				src={getProxyURL(imageRecord.value).toString()}
 				alt="hero"
 				fill
+				priority
+				sizes="(max-width: 768px) 90vw, 100vw"
 				className="-z-20 absolute inset-0 object-cover"
 			/>
 			<div className="-z-10 absolute h-full w-full bg-black/70 md:bg-black/30"></div>
@@ -52,12 +91,10 @@ export default function Hero() {
 			{/* Content */}
 			<div className="absolute left-0 flex h-[200px] w-full flex-col items-start justify-center gap-3 rounded-r-xl px-4 md:w-[600px] md:bg-background md:px-2 md:pl-4 xl:top-auto xl:bottom-32">
 				<h1 className="font-bold font-title text-5xl text-white md:text-black">
-					Evani Menon
+					{titleRecord.value}
 				</h1>
 				<p className="font-content font-normal text-white/70 text-xl leading-6 md:line-clamp-3 md:font-light md:text-black">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					{descriptionRecord.value}
 				</p>
 
 				<CornerTopLeft className="-top-[2px] -translate-y-full absolute left-0 hidden rotate-180 scale-125 text-background md:block" />
