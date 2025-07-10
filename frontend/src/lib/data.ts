@@ -10,3 +10,13 @@ export const KeyPairSchema = z.object({
 });
 
 export type KeyPairSchemaType = z.infer<typeof KeyPairSchema>;
+
+export const ProjectSchema = z.object({
+	id: z.string(),
+	title: z.string(),
+	description: z.string(),
+	drive_id: z.string(),
+	sort_order: z.number(),
+});
+
+export type ProjectSchemaType = z.infer<typeof ProjectSchema>;
