@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Josefin_Sans } from "next/font/google";
+import { Josefin_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const josefinSans = Josefin_Sans({
 	variable: "--font-josefin",
@@ -25,8 +26,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`flex flex-col items-center justify-center bg-background w-full h-full ${playfairDisplay.variable} ${josefinSans.variable} antialiased`}
+				className={`flex h-full w-full flex-col items-center justify-center bg-background ${playfairDisplay.variable} ${josefinSans.variable} antialiased`}
 			>
+				<Toaster />
 				{children}
 			</body>
 		</html>
