@@ -20,3 +20,19 @@ export const ProjectSchema = z.object({
 });
 
 export type ProjectSchemaType = z.infer<typeof ProjectSchema>;
+
+export const TimelineSchema = z
+	.object({
+		id: z.string(),
+		description: z.string(),
+		timeframe: z.string(),
+	})
+	.transform((value) => {
+		const date = new Date(value.timeframe);
+		return {
+			...value,
+			timeframe: date,
+		};
+	});
+
+export type TimelineSchemaType = z.output<typeof TimelineSchema>;
