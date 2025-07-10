@@ -1,4 +1,5 @@
 import { BrandGithub, BrandLinkedin } from "@/components/icons/brand";
+import { ContactForm } from "./contact.client";
 
 export default function Contact() {
 	return (
@@ -30,41 +31,7 @@ export default function Contact() {
 
 			<div className="flex h-auto w-full flex-col items-start justify-between gap-8 md:w-fit">
 				<h2 className="font-semibold text-2xl ">Send Me a Message</h2>
-				<form className="flex h-fit w-full flex-col items-start justify-start gap-4">
-					<div className="flex h-fit w-full flex-col items-center justify-center gap-5 md:flex-row">
-						<input
-							type="text"
-							name="firstName"
-							placeholder="First Name"
-							className="w-full rounded-2xl border-2 border-blue-light px-4 py-3 placeholder:text-blue-light"
-						/>
-
-						<input
-							type="text"
-							name="lastName"
-							placeholder="Last Name"
-							className="w-full rounded-2xl border-2 border-blue-light px-4 py-3 placeholder:text-blue-light"
-						/>
-					</div>
-
-					<input
-						type="text"
-						name="subject"
-						placeholder="Subject"
-						className="w-full rounded-2xl border-2 border-blue-light px-4 py-3 placeholder:text-blue-light"
-					/>
-					<textarea
-						name="message"
-						placeholder="Message"
-						className="h-[200px] w-full rounded-2xl border-2 border-blue-light px-4 py-3 placeholder:text-blue-light"
-					/>
-				</form>
-				<button
-					type="submit"
-					className="h-fit w-fit rounded-2xl bg-blue-light px-8 py-3 text-white"
-				>
-					Send Message
-				</button>
+				<ContactForm />
 			</div>
 		</div>
 	);
