@@ -1,4 +1,3 @@
-import { KeyPairSchemaType } from "@/lib/data";
 import Contact from "./contact";
 import Featured from "./featured";
 import Hero from "./hero";
