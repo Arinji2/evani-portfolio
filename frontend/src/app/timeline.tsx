@@ -4,31 +4,25 @@ import { getPB } from "@/lib/pb";
 import { TimelineMotionItem } from "./timeline.client";
 
 export default async function Timeline() {
-	const { timelineData } = await memoize(
+	const { rawData } = await memoize(
 		async () => {
 			const pb = await getPB();
-			const timelineData: TimelineSchemaType[] = [];
 			const rawData = await pb
 				.collection("timeline")
-				.getFullList<TimelineSchemaType>({
-					sort: "-timeframe",
-				});
-			rawData.forEach((item) => {
-				const parse = TimelineSchema.safeParse(item);
-				if (parse.success) {
-					timelineData.push(parse.data);
-				}
-			});
-			return {
-				timelineData,
-			};
+				.getFullList<TimelineSchemaType>({ sort: "-timeframe" });
+
+			return { rawData };
 		},
-		{
-			logid: "timeline",
-			log: ["datacache"],
-		},
+		{ logid: "timeline", log: ["datacache"] },
 	)();
-	console.log(timelineData);
+
+	const timelineData: TimelineSchemaType[] = [];
+	rawData.forEach((item) => {
+		const parse = TimelineSchema.safeParse(item);
+		if (parse.success) {
+			timelineData.push(parse.data);
+		}
+	});
 
 	return (
 		<div className="flex h-fit w-full flex-col items-center justify-center gap-10 px-4">
