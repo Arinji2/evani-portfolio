@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
 @theme inline {
   --font-title: var(--font-playfair);
   --font-content: var(--font-josefin);

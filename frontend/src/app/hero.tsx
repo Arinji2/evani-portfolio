@@ -43,8 +43,12 @@ export default async function Hero() {
 
 			{/* Navbar */}
 			<ul className="absolute top-0 right-0 hidden h-[80px] w-[600px] flex-row items-center justify-end gap-8 rounded-bl-xl bg-background md:flex">
-				<li className="font-content font-light text-[28px]">Home</li>
-				<li className="font-content font-light text-[28px]">Timeline</li>
+				<Link href="/" className="font-content font-light text-[28px]">
+					Home
+				</Link>
+				<Link href="#timeline" className="font-content font-light text-[28px]">
+					Timeline
+				</Link>
 				<Link
 					href={"/projects"}
 					prefetch={true}

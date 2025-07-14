@@ -25,7 +25,10 @@ export default async function Timeline() {
 	});
 
 	return (
-		<div className="flex h-fit w-full flex-col items-center justify-center gap-10 px-4">
+		<div
+			id="timeline"
+			className="flex h-fit w-full flex-col items-center justify-center gap-10 px-4"
+		>
 			<h2 className="font-bold font-title text-2xl md:text-4xl lg:text-6xl">
 				Timeline
 			</h2>
