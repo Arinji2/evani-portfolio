@@ -17,14 +17,15 @@ export function ContactForm() {
 		const firstName = formData.get("firstName") as string;
 		const lastName = formData.get("lastName") as string;
 
-		formData.set("user_name", `${firstName} ${lastName}`);
-		formData.delete("firstName");
-		formData.delete("lastName");
-
-		const result = await emailjs.sendForm(
+		const result = await emailjs.send(
 			"service_kbnpjmy",
 			"template_8ta5ygc",
-			form,
+			{
+				user_name: `${firstName} ${lastName}`,
+				user_email: formData.get("user_email"),
+				user_subject: formData.get("user_subject"),
+				user_message: formData.get("user_message"),
+			},
 			"FKlcLUbZedV_wNlJU",
 		);
 
