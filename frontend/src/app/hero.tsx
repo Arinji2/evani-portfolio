@@ -8,35 +8,19 @@ import {
 	CornerTopLeft,
 	CornerTopRight,
 } from "@/components/icons/corner";
-import type { KeyPairKey, KeyPairSchemaType } from "@/lib/data";
+import type { ArtSchemaType } from "@/lib/data";
 import { getPB } from "@/lib/pb";
 import { getProxyURL } from "@/lib/utils";
 export default async function Hero() {
-	const { imageRecord, titleRecord, descriptionRecord } = await memoize(
+	const { imageRecord } = await memoize(
 		async () => {
 			const pb = await getPB();
+
 			const imageRecord = await pb
-				.collection("keys")
-				.getFirstListItem<KeyPairSchemaType>(
-					`key = "${"hero_image_id" as KeyPairKey}"`,
-				);
-
-			const titleRecord = await pb
-				.collection("keys")
-				.getFirstListItem<KeyPairSchemaType>(
-					`key = "${"hero_title" as KeyPairKey}"`,
-				);
-
-			const descriptionRecord = await pb
-				.collection("keys")
-				.getFirstListItem<KeyPairSchemaType>(
-					`key = "${"hero_desc" as KeyPairKey}"`,
-				);
-
+				.collection("art")
+				.getFirstListItem<ArtSchemaType>(`homepage=true`);
 			return {
 				imageRecord,
-				titleRecord,
-				descriptionRecord,
 			};
 		},
 		{
@@ -48,7 +32,7 @@ export default async function Hero() {
 	return (
 		<div className="relative flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden md:h-[calc(100svh-48px)] md:w-[calc(100%-48px)] md:rounded-2xl">
 			<Image
-				src={getProxyURL(imageRecord.value).toString()}
+				src={getProxyURL(imageRecord.drive_id).toString()}
 				alt="hero"
 				fill
 				priority
@@ -91,10 +75,12 @@ export default async function Hero() {
 			{/* Content */}
 			<div className="absolute left-0 flex h-[200px] w-full flex-col items-start justify-center gap-3 rounded-r-xl px-4 md:w-[600px] md:bg-background md:px-2 md:pl-4 xl:top-auto xl:bottom-32">
 				<h1 className="font-bold font-title text-5xl text-white md:text-black">
-					{titleRecord.value}
+					Evani Menon
 				</h1>
 				<p className="font-content font-normal text-white/70 text-xl leading-6 md:line-clamp-3 md:font-light md:text-black">
-					{descriptionRecord.value}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget nisl
+					eget nunc varius tincidunt. Sed eget nisl eget nunc varius tincidunt.
+					Sed eget nisl eget nunc varius tincidunt.
 				</p>
 
 				<CornerTopLeft className="-top-[2px] -translate-y-full absolute left-0 hidden rotate-180 scale-125 text-background md:block" />
