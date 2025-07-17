@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Josefin_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { Navbar } from "./navbar.client";
 
 const josefinSans = Josefin_Sans({
 	variable: "--font-josefin",
@@ -28,6 +29,7 @@ export default function RootLayout({
 			<body
 				className={`flex h-full w-full flex-col items-center justify-center bg-background ${playfairDisplay.variable} ${josefinSans.variable} antialiased`}
 			>
+				<Navbar />
 				<Toaster />
 				{children}
 			</body>
