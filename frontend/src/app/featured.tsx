@@ -12,6 +12,7 @@ export default async function Featured() {
 				.collection("projects")
 				.getList<ProjectSchemaType>(1, 3, {
 					filter: `featured = true`,
+					expand: "image",
 				});
 			return {
 				featuredProjects,
@@ -41,7 +42,7 @@ function FeaturedCard({ data }: { data: ProjectSchemaType }) {
 		<div className="flex h-fit w-full flex-col items-center justify-center md:w-[25%]">
 			<div className="group relative h-[250px] w-full overflow-hidden md:h-[350px]">
 				<Image
-					src={getProxyURL(data.drive_id).toString()}
+					src={getProxyURL(data.expand.image.drive_id).toString()}
 					alt={`${data.title} cover`}
 					fill
 					sizes="(min-width: 768px) 350px, 250px"
