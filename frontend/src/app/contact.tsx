@@ -3,7 +3,10 @@ import { ContactForm } from "./contact.client";
 
 export default function Contact() {
 	return (
-		<div className="flex w-full flex-col items-stretch justify-between gap-8 px-4 md:flex-row">
+		<div
+			id="contact"
+			className="flex w-full flex-col items-stretch justify-between gap-8 px-4 md:flex-row"
+		>
 			<div className="flex h-fit w-full flex-col items-center justify-start gap-12 md:w-[40%] md:items-start">
 				<h2 className="font-bold font-title text-2xl text-blue-light md:text-4xl xl:text-8xl">
 					Get in <span className="md:block md:pl-44">Touch</span>
