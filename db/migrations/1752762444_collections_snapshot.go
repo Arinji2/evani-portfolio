@@ -775,20 +775,6 @@ func init() {
 						"type": "text"
 					},
 					{
-						"autogeneratePattern": "",
-						"hidden": false,
-						"id": "text2263212228",
-						"max": 0,
-						"min": 0,
-						"name": "drive_id",
-						"pattern": "",
-						"presentable": false,
-						"primaryKey": false,
-						"required": true,
-						"system": false,
-						"type": "text"
-					},
-					{
 						"hidden": false,
 						"id": "number1169138922",
 						"max": null,
@@ -808,6 +794,29 @@ func init() {
 						"required": false,
 						"system": false,
 						"type": "bool"
+					},
+					{
+						"cascadeDelete": false,
+						"collectionId": "pbc_3387548855",
+						"hidden": false,
+						"id": "relation3309110367",
+						"maxSelect": 1,
+						"minSelect": 0,
+						"name": "image",
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "relation"
+					},
+					{
+						"hidden": false,
+						"id": "autodate2341372968",
+						"name": "created_at",
+						"onCreate": true,
+						"onUpdate": false,
+						"presentable": false,
+						"system": false,
+						"type": "autodate"
 					}
 				],
 				"id": "pbc_484305853",
@@ -962,6 +971,72 @@ func init() {
 				"indexes": [],
 				"listRule": null,
 				"name": "timeline",
+				"system": false,
+				"type": "base",
+				"updateRule": null,
+				"viewRule": null
+			},
+			{
+				"createRule": null,
+				"deleteRule": null,
+				"fields": [
+					{
+						"autogeneratePattern": "[a-z0-9]{15}",
+						"hidden": false,
+						"id": "text3208210256",
+						"max": 15,
+						"min": 15,
+						"name": "id",
+						"pattern": "^[a-z0-9]+$",
+						"presentable": false,
+						"primaryKey": true,
+						"required": true,
+						"system": true,
+						"type": "text"
+					},
+					{
+						"autogeneratePattern": "",
+						"hidden": false,
+						"id": "text2263212228",
+						"max": 0,
+						"min": 0,
+						"name": "drive_id",
+						"pattern": "",
+						"presentable": false,
+						"primaryKey": false,
+						"required": false,
+						"system": false,
+						"type": "text"
+					},
+					{
+						"hidden": false,
+						"id": "number2350531887",
+						"max": null,
+						"min": null,
+						"name": "width",
+						"onlyInt": false,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					},
+					{
+						"hidden": false,
+						"id": "number4115522831",
+						"max": null,
+						"min": null,
+						"name": "height",
+						"onlyInt": false,
+						"presentable": false,
+						"required": false,
+						"system": false,
+						"type": "number"
+					}
+				],
+				"id": "pbc_3387548855",
+				"indexes": [],
+				"listRule": null,
+				"name": "assets",
 				"system": false,
 				"type": "base",
 				"updateRule": null,

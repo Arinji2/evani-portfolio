@@ -1,11 +1,19 @@
 import { z } from "zod";
-
+export const AssetSchema = z.object({
+	id: z.string(),
+	drive_id: z.string(),
+	width: z.number(),
+	height: z.number(),
+});
 export const ProjectSchema = z.object({
 	id: z.string(),
 	title: z.string(),
 	description: z.string(),
-	drive_id: z.string(),
 	sort_order: z.number(),
+	image: z.string(),
+	expand: z.object({
+		image: AssetSchema,
+	}),
 });
 
 export type ProjectSchemaType = z.infer<typeof ProjectSchema>;
