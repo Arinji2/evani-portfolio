@@ -35,6 +35,19 @@ func main() {
 		Automigrate: isGoRun,
 	})
 
+	app.OnRecordCreateRequest("assets").BindFunc(func(e *core.RecordRequestEvent) error {
+		driveID := e.Record.GetString("drive_id")
+		dimensions, err := GetImageDimensionsFromDrive(driveID)
+		if err != nil {
+			log.Printf("Error getting image dimensions: %v", err)
+			return e.Next()
+		}
+		fmt.Println(dimensions)
+		e.Record.Set("width", dimensions.Width)
+		e.Record.Set("height", dimensions.Height)
+		return e.Next()
+	})
+
 	app.OnRecordUpdateRequest("music").BindFunc(func(e *core.RecordRequestEvent) error {
 		client := api.NewAPIClient(frontendURL)
 		_, err := client.SendRequestWithQuery("GET", "/api/revalidate", map[string]string{"secret": secret}, map[string]string{})
