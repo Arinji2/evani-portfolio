@@ -1,9 +1,34 @@
-import Image from "next/image";
-import HeroImage from "@/../public/hero.png";
+import type { ArtSchemaType, ProjectSchemaType } from "@/lib/data";
+import { getPB } from "@/lib/pb";
+import ArtCard from "./art-card";
 
-export default function Page() {
+const reorderForColumns = (
+	data: ProjectSchemaType[],
+	columnCount: number = 3,
+) => {
+	const itemsPerColumn = Math.ceil(data.length / columnCount);
+	const reordered = [];
+
+	for (let col = 0; col < columnCount; col++) {
+		for (let row = 0; row < itemsPerColumn; row++) {
+			const index = row * columnCount + col;
+			if (index < data.length) {
+				reordered.push(data[index]);
+			}
+		}
+	}
+
+	return reordered;
+};
+export default async function Projects() {
+	const pb = await getPB();
+	const results = await pb.collection("art").getFullList<ArtSchemaType>({
+		sort: "-homepage,-sort_order,-created_at",
+		expand: "image",
+	});
+
 	return (
-		<div className=" flex h-fit w-full max-w-pageMax flex-col items-center justify-start gap-10 px-4 py-10 font-content md:gap-20 md:py-6">
+		<div className=" flex h-fit w-full max-w-pageMax flex-col items-center justify-start gap-10 px-4 font-content md:gap-20 md:py-6 md:pt-24">
 			<div className="flex h-fit w-full flex-col items-center justify-start gap-5 text-center">
 				<h1 className="font-bold font-title text-3xl text-black md:text-5xl">
 					My Artworks
@@ -15,9 +40,22 @@ export default function Page() {
 					aliquip ex ea commodo consequat.
 				</p>
 			</div>
+			<div className="hidden h-full w-full columns-3 xl:block">
+				{reorderForColumns(results, 3).map((item) => (
+					<ArtCard key={item.id} data={item} />
+				))}
+			</div>
 
-			<div className="framed-image relative inline-block h-fit w-fit ">
-				<Image src={HeroImage} alt="Hero" />
+			<div className="hidden h-full w-full columns-2 md:block xl:hidden">
+				{reorderForColumns(results, 2).map((item) => (
+					<ArtCard key={item.id} data={item} />
+				))}
+			</div>
+
+			<div className="block h-full w-full columns-1 md:hidden">
+				{reorderForColumns(results, 1).map((item) => (
+					<ArtCard key={item.id} data={item} />
+				))}
 			</div>
 		</div>
 	);

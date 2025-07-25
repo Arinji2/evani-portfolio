@@ -18,7 +18,9 @@ export default async function Hero() {
 
 			const imageRecord = await pb
 				.collection("art")
-				.getFirstListItem<ArtSchemaType>(`homepage=true`);
+				.getFirstListItem<ArtSchemaType>(`homepage=true`, {
+					expand: "image",
+				});
 			return {
 				imageRecord,
 			};
@@ -32,7 +34,7 @@ export default async function Hero() {
 	return (
 		<div className="relative flex h-[100svh] w-full flex-col items-center justify-center overflow-hidden md:h-[calc(100svh-48px)] md:w-[calc(100%-48px)] md:rounded-2xl">
 			<Image
-				src={getProxyURL(imageRecord.drive_id).toString()}
+				src={getProxyURL(imageRecord.expand.image.drive_id).toString()}
 				alt="hero"
 				fill
 				priority

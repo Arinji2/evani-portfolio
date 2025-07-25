@@ -38,9 +38,12 @@ export const ArtSchema = z.object({
 	id: z.string(),
 	title: z.string(),
 	description: z.string(),
-	drive_id: z.string(),
 	sort_order: z.number(),
 	homepage: z.boolean(),
+	image: z.string(),
+	expand: z.object({
+		image: AssetSchema,
+	}),
 });
 
 export type ArtSchemaType = z.infer<typeof ArtSchema>;
