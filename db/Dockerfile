@@ -9,12 +9,12 @@ WORKDIR /app
 COPY go.mod go.sum ./
 
 # Download deps separately to cache them
-RUN go mod download -x 
+RUN go mod download 
 # Then copy the rest of the app
 COPY . .
 
 # Build
-RUN go build -x -o evani-db
+RUN go build -o evani-db
 
 # ---------- Stage 2: Minimal image ----------
 FROM alpine:latest
