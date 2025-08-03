@@ -19,6 +19,7 @@ func driveProxyHandler(w http.ResponseWriter, r *http.Request) {
 	_, isDev := os.LookupEnv("ENVIRONMENT")
 
 	if !isDev {
+		fmt.Println(referer)
 		if referer != "" || !strings.HasPrefix(referer, allowedOrigin) {
 			http.Error(w, "Forbidden: invalid referer", http.StatusForbidden)
 			return
