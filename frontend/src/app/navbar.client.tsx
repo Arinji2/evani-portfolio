@@ -18,8 +18,6 @@ export function Navbar() {
 		};
 	}, []);
 
-	console.log(scrolled);
-
 	return (
 		<div
 			className={cn(

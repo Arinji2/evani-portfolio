@@ -29,8 +29,6 @@ export default async function Projects() {
 			expand: "image",
 		});
 
-	console.log(results);
-
 	return (
 		<div className=" flex h-fit w-full max-w-pageMax flex-col items-center justify-start gap-10 px-4 py-10 font-content md:gap-20 md:py-6 md:pt-24">
 			<div className="flex h-fit w-full flex-col items-center justify-start gap-5 text-center">
