@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/arinji2/evani-db/api"
+	_ "github.com/arinji2/evani-db/migrations"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/pocketbase/pocketbase"
 	"github.com/pocketbase/pocketbase/core"
