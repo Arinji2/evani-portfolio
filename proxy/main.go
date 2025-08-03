@@ -45,7 +45,7 @@ func driveProxyHandler(w http.ResponseWriter, r *http.Request) {
 
 	fileID := r.URL.Query().Get("fileID")
 	if fileID == "" {
-		http.Error(w, "fileID parameter is required", http.StatusBadRequest)
+		http.Error(w, "fileID parameter is missing", http.StatusBadRequest)
 		return
 	}
 
