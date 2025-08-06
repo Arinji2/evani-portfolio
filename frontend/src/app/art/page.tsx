@@ -28,7 +28,7 @@ export default async function Projects() {
 	});
 
 	return (
-		<div className=" flex h-fit w-full max-w-pageMax flex-col items-center justify-start gap-10 px-4 font-content md:gap-20 md:py-6 md:pt-24">
+		<div className=" -20 flex h-fit w-full max-w-pageMax flex-col items-center justify-start gap-10 px-4 pt-24 font-content md:gap-20 md:py-6">
 			<div className="flex h-fit w-full flex-col items-center justify-start gap-5 text-center">
 				<h1 className="font-bold font-title text-3xl text-black md:text-5xl">
 					My Artworks
